@@ -32,7 +32,7 @@ Each file has the same format:
 
 where:
 	
-	**date** is the calendar date on which that row of data was collected
+	__date__ is the calendar date on which that row of data was collected
 	
 	**datetime** is the date, hours, minutes, and seconds at which that row of data was collected
 	
@@ -69,4 +69,4 @@ Another way of determining the accuracy of the park's wait times is by comparing
 	
 	1) If Person A enters the same line for the same ride before Person B, person A will board the ride before or with Person B. (That is, person B will not pass person A in line.)
 
-The PHP script 	
+The PHP script volatility.php computes this volatility. I'll write more about that shortly.
