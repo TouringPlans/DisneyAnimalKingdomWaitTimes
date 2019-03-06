@@ -32,36 +32,36 @@ Each file has the same format:
 
 where:
 	
-	__date__ is the calendar date on which that row of data was collected
+__date__ is the calendar date on which that row of data was collected
 	
-	**datetime** is the date, hours, minutes, and seconds at which that row of data was collected
+**datetime** is the date, hours, minutes, and seconds at which that row of data was collected
 	
-	All dates and times are expressed as US Eastern.
+All dates and times are expressed as US Eastern.
 	
-	**SPOSTMIN** is the posted wait time outside the attraction, in minutes. Posted wait times are collected from Disney's My Disney Experience app, from users in the parks, and from staff.
-	A posted wait of -999 indicates the ride is unexpectedly offline.
+**SPOSTMIN** is the posted wait time outside the attraction, in minutes. Posted wait times are collected from Disney's My Disney Experience app, from users in the parks, and from staff.
+A posted wait of -999 indicates the ride is unexpectedly offline.
 	
-	**SACTMIN** is the amount of time spent in line by actual user, in minutes, to ride that attraction. The **datetime** field indicates the time at which the user began their wait in line.
+**SACTMIN** is the amount of time spent in line by actual user, in minutes, to ride that attraction. The **datetime** field indicates the time at which the user began their wait in line.
 	
-	In the three-row example above, the first row indicates that a ride's posted wait time was 30 minutes at 11:40 a.m. Eastern on 2/22/2019. The second row indicates that a a user got in line at
-	11:40 a.m. Eastern on 2/22/2019, and waited 18 minutes to board the attraction. The third row shows that the attraction's posted wait time changed to 25 minutes at 11:45 a.m. Eastern on the same day.  
+In the three-row example above, the first row indicates that a ride's posted wait time was 30 minutes at 11:40 a.m. Eastern on 2/22/2019. The second row indicates that a a user got in line at
+11:40 a.m. Eastern on 2/22/2019, and waited 18 minutes to board the attraction. The third row shows that the attraction's posted wait time changed to 25 minutes at 11:45 a.m. Eastern on the same day.  
 	
 ### Processing the data
 
-	The PHP script actual_vs_posted.php does two things:
+The PHP script actual_vs_posted.php does two things:
 		
-		1) Tries to match each actual wait time with the closest observed posted wait time, immediately before and after the actual wait time was collected. The posted wait times must be within a
-		   10-minute window on either side of the actual wait time observation **datetime** stamp.  
+	1) Tries to match each actual wait time with the closest observed posted wait time, immediately before and after the actual wait time was collected. The posted wait times must be within a
+	   10-minute window on either side of the actual wait time observation **datetime** stamp.  
 		
-		2) For each actual wait time that is matched, print out the before and after posted wait times along with the actual wait time, in a format that allows for easier processing as an Excel pivot table
+	2) For each actual wait time that is matched, print out the before and after posted wait times along with the actual wait time, in a format that allows for easier processing as an Excel pivot table
 		
-	To run the file AK07.csv through the PHP script, do this (in Linux):
+To run the file AK07.csv through the PHP script, do this (in Linux):
 		
-		php -f actual_vs_posted.php -- -i AK07.csv > AK07_act_vs_posted.csv
+	php -f actual_vs_posted.php -- -i AK07.csv > AK07_act_vs_posted.csv
 		
-	Then view the file AK07_act_vs_posted.csv in Excel.
+Then view the file AK07_act_vs_posted.csv in Excel.
 	
-	You can run all of the Animal Kingdom files using the bash script 'runme.sh' too.
+You can run all of the Animal Kingdom files using the bash script 'runme.sh' too.
 	
 ## Attraction Volatility
 
