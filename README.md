@@ -60,3 +60,13 @@ where:
 		php -f actual_vs_posted.php -- -i AK07.csv > AK07_act_vs_posted.csv
 		
 	Then view the file AK07_act_vs_posted.csv in Excel.
+	
+	You can run all of the Animal Kingdom files using the bash script 'runme.sh' too.
+	
+## Attraction Volatility
+
+Another way of determining the accuracy of the park's wait times is by comparing how much they change in a short amount of time. To do this, we need to make one relatively safe assumption:
+	
+	1) If Person A enters the same line for the same ride before Person B, person A will board the ride before or with Person B. (That is, person B will not pass person A in line.)
+
+The PHP script 	
